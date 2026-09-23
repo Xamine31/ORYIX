@@ -49,3 +49,170 @@ button{color:inherit}
 .payment-security{padding:0 0 10px}.payment-security-inner{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;border:1px solid #2c3850;background:linear-gradient(100deg,rgba(49,92,255,.08),rgba(154,56,255,.06));border-radius:18px;padding:18px 20px}.security-mark{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:rgba(111,146,255,.14);border:1px solid #3e5078;font-size:1.2rem;font-weight:900}.payment-security-inner strong,.payment-security-inner span{display:block}.payment-security-inner>div:nth-child(2)>span{margin-top:2px;color:var(--muted);font-size:.86rem}.security-chip{border:1px solid #3a4760;border-radius:999px;padding:7px 10px;font-size:.74rem;font-weight:850;letter-spacing:.08em;color:#cfd8e8}.payment-modal{max-width:620px;width:calc(100% - 30px);background:#0e131a;color:#fff;border:1px solid #2f394c;border-radius:24px;padding:34px;box-shadow:var(--shadow)}.payment-modal::backdrop{background:rgba(0,0,0,.72)}.payment-modal-close{position:absolute;right:16px;top:14px;background:none;border:0;color:#fff;font-size:2rem;cursor:pointer}.payment-modal h2{font-size:2rem;margin:0 0 14px}.payment-modal p{color:#bfc7d5}.payment-note{margin-top:18px;padding:14px 16px;border:1px solid #3a455b;border-radius:14px;background:#0a0e14;color:#c9d1df;font-size:.9rem}.payment-note code,.cart-footer code{color:#d8c6ff}.checkout-help{line-height:1.45}
 @media (max-width:760px){.product-actions{width:100%;display:grid;grid-template-columns:1fr 1fr}.product-actions .btn{width:100%;padding-inline:12px}.payment-security-inner{grid-template-columns:auto 1fr}.security-chip{grid-column:2;justify-self:start}.payment-modal{padding:28px 22px}}
 @media (max-width:430px){.product-bottom{gap:10px}.product-actions{grid-template-columns:1fr}.product-actions .btn{min-height:40px}.payment-security-inner{grid-template-columns:1fr}.security-chip{grid-column:auto}.security-mark{width:38px;height:38px}}
+
+/* =========================================================
+   ORYIX — mockups 3D des e-books
+   Ces effets utilisent uniquement les couvertures locales du dossier
+   assets/covers : aucun service externe ni génération d'image requise.
+   ========================================================= */
+.ebook-mockup{
+  position:relative;
+  width:100%;
+  max-width:190px;
+  aspect-ratio:760/1080;
+  isolation:isolate;
+  filter:drop-shadow(0 24px 25px rgba(0,0,0,.52));
+}
+.ebook-mockup::before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  top:2.1%;
+  bottom:1.4%;
+  left:-10px;
+  width:14px;
+  border-radius:5px 0 0 5px;
+  background:linear-gradient(90deg,#05070a,#1c2431 48%,#090c11);
+  border:1px solid rgba(255,255,255,.09);
+  transform:skewY(-12deg);
+  transform-origin:right center;
+}
+.ebook-mockup::after{
+  content:"";
+  position:absolute;
+  z-index:0;
+  left:4%;
+  right:-8px;
+  bottom:-8px;
+  height:10px;
+  border-radius:0 0 5px 3px;
+  background:linear-gradient(180deg,#edf1f8,#9ca6b7 42%,#3a424f 44%,#151922 100%);
+  transform:skewX(-43deg);
+  transform-origin:left top;
+  opacity:.9;
+}
+.ebook-cover{
+  position:absolute;
+  z-index:2;
+  inset:0;
+  overflow:hidden;
+  border-radius:5px 7px 7px 5px;
+  background:#0a0e14;
+  border:1px solid rgba(255,255,255,.14);
+  box-shadow:inset 10px 0 14px rgba(255,255,255,.035),inset -2px 0 6px rgba(0,0,0,.45);
+  transform:perspective(900px) rotateY(-7deg);
+  transform-origin:left center;
+}
+.ebook-cover::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:linear-gradient(105deg,rgba(255,255,255,.08),transparent 18%,transparent 75%,rgba(255,255,255,.025));
+  mix-blend-mode:screen;
+}
+.ebook-cover img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:0;
+}
+
+/* Hero : étagère de 4 livres, proche de la maquette visuelle */
+.hero-book-shelf{
+  position:absolute;
+  z-index:4;
+  right:2.5%;
+  bottom:3%;
+  width:67%;
+  height:70%;
+  pointer-events:none;
+}
+.hero-book{
+  position:absolute;
+  bottom:0;
+  width:25%;
+  max-width:none;
+  transition:transform .35s ease,filter .35s ease;
+}
+.hb1{left:0;bottom:3%;transform:rotate(-5deg) scale(.92)}
+.hb2{left:24%;bottom:1%;transform:rotate(-2deg) scale(.98)}
+.hb3{left:48%;bottom:2%;transform:rotate(2deg) scale(.95)}
+.hb4{left:72%;bottom:5%;transform:rotate(5deg) scale(.9)}
+.hero-visual::after{
+  content:"";
+  position:absolute;
+  z-index:3;
+  right:2%;
+  bottom:1%;
+  width:70%;
+  height:18%;
+  background:radial-gradient(ellipse,rgba(0,0,0,.62),transparent 68%);
+  filter:blur(12px);
+  pointer-events:none;
+}
+
+/* Cartes produits : vrai effet "livre" au lieu d'une image plate */
+.cover-wrap{
+  overflow:hidden;
+  position:relative;
+  min-height:260px;
+  background:
+    radial-gradient(circle at 50% 16%,rgba(97,82,255,.19),transparent 42%),
+    linear-gradient(180deg,#101722,#080c12);
+}
+.cover-wrap::before{
+  content:"";
+  position:absolute;
+  inset:auto 12% 8% 12%;
+  height:20%;
+  border-radius:50%;
+  background:rgba(0,0,0,.46);
+  filter:blur(20px);
+}
+.cover-wrap .product-book{
+  width:min(62%,180px);
+  max-width:none;
+  transform:rotate(-1.5deg);
+  transition:transform .3s ease,filter .3s ease;
+}
+.product-card:hover .product-book{
+  transform:translateY(-4px) rotate(-.5deg) scale(1.025);
+  filter:drop-shadow(0 30px 30px rgba(0,0,0,.58));
+}
+.cover-wrap img{
+  height:100%;
+  width:100%;
+  border-radius:0;
+  box-shadow:none;
+}
+
+@media (max-width:1040px){
+  .hero-book-shelf{width:62%;height:68%;right:3%}
+  .cover-wrap{min-height:300px}
+}
+
+@media (max-width:760px){
+  .hero-visual{min-height:410px}
+  .hero-art{width:100%;height:410px;object-fit:cover;object-position:42% center}
+  .hero-book-shelf{width:72%;height:62%;right:1%;bottom:1%}
+  .hero-book{width:27%}
+  .hb1{left:-1%;bottom:2%;transform:rotate(-5deg) scale(.9)}
+  .hb2{left:23%;bottom:0;transform:rotate(-2deg) scale(.96)}
+  .hb3{left:47%;bottom:1%;transform:rotate(2deg) scale(.93)}
+  .hb4{left:71%;bottom:4%;transform:rotate(5deg) scale(.86)}
+  .cover-wrap{min-height:0;padding:14px;overflow:visible}
+  .cover-wrap::before{inset:auto 8% 8% 8%;height:16%}
+  .cover-wrap .product-book{width:94%;max-width:118px;margin:auto}
+}
+
+@media (max-width:430px){
+  .hero-visual{min-height:365px}
+  .hero-art{height:365px}
+  .hero-book-shelf{width:78%;height:58%;right:-2%;bottom:0}
+  .hero-book{width:28%}
+  .cover-wrap .product-book{width:100%;max-width:96px}
+  .ebook-mockup::before{left:-7px;width:10px}
+  .ebook-mockup::after{right:-6px;bottom:-6px;height:7px}
+}

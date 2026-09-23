@@ -76,3 +76,16 @@ Le formulaire reste en mode démo. Pour enregistrer les e-mails, connecte-le à 
 ## Important
 
 Les pages légales sont des modèles. Complète-les avec les informations réelles de ton activité, tes modalités de livraison numérique et ta politique de remboursement avant la mise en ligne.
+
+## Visuels des e-books
+
+Les quatre couvertures sont incluses directement dans le projet :
+
+- `assets/covers/discipline.svg`
+- `assets/covers/mentalite.svg`
+- `assets/covers/confiance.svg`
+- `assets/covers/silence.svg`
+
+Le site applique automatiquement un effet de livre 3D en CSS dans le hero et dans les cartes produits. Aucun service externe n'est nécessaire.
+
+Pour remplacer une couverture plus tard, garde le même nom de fichier ou modifie le chemin dans `index.html`. Les proportions recommandées sont environ **2:3** (portrait).
